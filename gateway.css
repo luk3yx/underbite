@@ -1,0 +1,39 @@
+html[data-underbite] {
+    background: #eee;
+    margin: 0;
+    margin-top: 10px !important;
+}
+
+html[data-underbite] * {
+    font-family: "Ubuntu Mono", monospace !important;
+}
+html[data-underbite] img {
+    padding-right: 5px;
+}
+html[data-underbite] hr {
+    margin-top: 25px;
+    padding: 5px;
+    background-color: #eee;
+    width: 648px;
+    transform: translateX(-10px);
+    border-radius: 0;
+    color: transparent;
+}
+
+html[data-underbite] body {
+    max-width: 660px;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 10px;
+}
+
+html[data-underbite] pre {
+    overflow: auto;
+}
+
+html[data-underbite] h1 {
+    margin-top: 0.25em;
+}

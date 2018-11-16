@@ -1,0 +1,44 @@
+{
+    "manifest_version": 2,
+    "name": "Underbite",
+    "version": "0.1.0",
+
+    "description": "A more modern interface for OverbiteWX.",
+
+    "icons": {
+        "16": "/logo.svg",
+        "24": "/logo.svg",
+        "32": "/logo.svg",
+        "48": "/logo.svg",
+        "64": "/logo.svg",
+        "96": "/logo.svg"
+    },
+
+
+    "content_scripts": [
+      {
+        "all_frames": true,
+        "matches": ["https://gopher.floodgap.com/gopher/gw.lite*"],
+        "run_at": "document_start",
+        "js": ["gateway.js"],
+        "css": ["gateway.css"]
+      }
+    ],
+
+    "background": {
+        "scripts": ["bookmarks.js"]
+    },
+
+    "permissions": [
+        "bookmarks",
+        "history"
+    ],
+
+    "protocol_handlers": [
+        {
+            "protocol": "gopher",
+            "name": "Underbite",
+            "uriTemplate": "gopher.html?%s"
+        }
+    ]
+}
