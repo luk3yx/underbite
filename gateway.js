@@ -17,6 +17,18 @@ top.postMessage([false, window.location.search], '*');
 
 document.documentElement.setAttribute('data-underbite', 'true');
 
+async function check_dark_mode() {
+    var res = await browser.storage.local.get('dark_mode');
+    if (res.dark_mode) {
+        document.documentElement.setAttribute('data-underbite-dark', 'true');
+    } else {
+        document.documentElement.removeAttribute('data-underbite-dark');
+    }
+}
+
+check_dark_mode();
+window.addEventListener('message', check_dark_mode);
+
 function redirectLink(e) {
     var obj = e.target;
     var c = 0;

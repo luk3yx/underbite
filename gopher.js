@@ -8,6 +8,7 @@ var current_url = 'gopher://127.0.0.1';
 var urlbar;
 var frame;
 var display_onload = false;
+var dark_mode = false;
 var useHistory = [];
 
 // Use the tab instead of the window in case of private tabs.
@@ -25,17 +26,20 @@ browser.tabs.getCurrent().then(function(s) {
     }
 })
 
-window.onload = function() {
+window.addEventListener('load', function() {
     urlbar = document.getElementById('urlbar');
     frame  = document.getElementsByClassName('frame')[0];
-    var n = document.getElementsByClassName("button");
+    var n = document.getElementsByClassName('button');
     for (var i = 0; i < n.length; i++) {
-        if (n[i].id != "urlbar") {
-            n[i].onclick = icon_click;
-            n[i].ondragstart = icon_drag;
-        }
+        var e = n[i];
+        if (e.id == 'urlbar') continue;
+        if (e.id != 'toggle-dark-mode')
+            e.addEventListener('click', icon_click);
+        e.addEventListener('dragstart', icon_drag);
     }
-    document.getElementById("urlwrapper").onsubmit = icon_click;
+    document.getElementById('urlwrapper').onsubmit = icon_click;
+    document.getElementById('toggle-dark-mode').addEventListener('click',
+        toggle_dark_mode);
     if (window.location.search.length > 1) {
         navigate(decodeURIComponent(window.location.search.substr(1)));
     } else {
@@ -45,6 +49,26 @@ window.onload = function() {
     if (display_onload) {
         display_onload();
     }
+});
+
+function _raw_update_dark_mode() {
+    document.documentElement.className = dark_mode ? 'dark' : '';
+    if (frame) frame.contentWindow.postMessage('.', '*');
+}
+
+async function check_dark_mode() {
+    var res = await browser.storage.local.get('dark_mode');
+    dark_mode = res.dark_mode;
+    _raw_update_dark_mode();
+}
+check_dark_mode();
+
+window.addEventListener('focus', check_dark_mode);
+
+function toggle_dark_mode() {
+    dark_mode = ! dark_mode;
+    browser.storage.local.set({dark_mode});
+    _raw_update_dark_mode();
 }
 
 function display_url(url) {

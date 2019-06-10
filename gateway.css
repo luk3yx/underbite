@@ -38,3 +38,29 @@ html[data-underbite] pre {
 html[data-underbite] h1 {
     margin-top: 0.25em;
 }
+
+html[data-underbite-dark] {
+    background-color: #121212;
+}
+
+html[data-underbite-dark] hr {
+    background-color: #121212;
+    border-color: #121212;
+}
+
+html[data-underbite-dark] body {
+    background-color: #1C1C1C;
+    color: #fff;
+}
+
+html[data-underbite-dark] a {
+    color: #54ccf0;
+}
+
+html[data-underbite-dark] a:visited {
+    color: #38aaca;
+}
+
+html[data-underbite-dark] img {
+    filter: invert(89%);
+}

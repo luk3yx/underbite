@@ -10,6 +10,15 @@ nav {
     justify-content: space-between;
 }
 
+html.dark nav {
+    background: #323234;
+    border-bottom-color: #0C0C0D;
+}
+
+html.dark nav .button img {
+    filter: invert(100%);
+}
+
 nav a {
     text-decoration: none;
 }
@@ -73,6 +82,10 @@ nav .button:active img {
 
 body {
     background: #eee;
+}
+
+html.dark body, html.dark .frame {
+    background: #121212;
 }
 
 @media print {
