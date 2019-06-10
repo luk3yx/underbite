@@ -6,6 +6,7 @@ html[data-underbite] {
 
 html[data-underbite] * {
     font-family: "Ubuntu Mono", monospace !important;
+    font-size: 14px;
 }
 html[data-underbite] img {
     padding-right: 5px;
