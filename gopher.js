@@ -144,6 +144,10 @@ function navigate(ourl) {
                     v.pop();
                 }
                 v.pop();
+                // Set the content type to menu.
+                if (v.length > 1) {
+                    v[1] = '1' + v[1].substr(1);
+                }
             }
         } else {
             // Use the parent URL specified in the breadcrumbs.

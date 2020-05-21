@@ -61,6 +61,6 @@ html[data-underbite-dark] a:visited {
     color: #38aaca;
 }
 
-html[data-underbite-dark] img {
+html[data-underbite-dark] tr img {
     filter: invert(89%);
 }
