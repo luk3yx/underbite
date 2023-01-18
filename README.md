@@ -8,7 +8,7 @@
 \____/_/ /_/\__,_/\___/_/  /_.___/_/\__/\___/
 ~~~
 
-[![AMO v0.2.2](https://img.shields.io/badge/AMO-v0.2.2-blue.svg)](https://addons.mozilla.org/firefox/addon/underbite)
+[![AMO v0.2.3](https://img.shields.io/badge/AMO-v0.2.3-blue.svg)](https://addons.mozilla.org/firefox/addon/underbite)
 
 Underbite is a Firefox add-on that redirects Gopher URLs to a themed Floodgap Gopher proxy.
 
